@@ -1,0 +1,35 @@
+[package]
+name = "door"
+authors = ["David Lawrence <dlaw@dlaw.me>"]
+version = "0.1.0"
+edition = "2021"
+
+[profile.dev]
+opt-level = 3
+debug = false
+debug-assertions = false
+overflow-checks = false
+lto = true
+
+[profile.release]
+opt-level = 3
+debug = false
+debug-assertions = false
+overflow-checks = false
+lto = true
+
+[dependencies]
+cortex-m-rtic = "^1.0"
+dwt-systick-monotonic = "^1.1"
+
+[dependencies.stm32f4xx-hal]
+version = "^0.13"
+features = ["stm32f411", "rt", "rtic-monotonic"]
+
+[dependencies.rtt-target]
+version = "^0.3"
+features = ["cortex-m"]
+
+[dependencies.panic-rtt-target]
+version = "^0.1"
+features = ["cortex-m"]
